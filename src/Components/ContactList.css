@@ -1,0 +1,47 @@
+/* ContactList.css */
+
+/* Style the table header */
+thead {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    /* Center text in header cells */
+
+}
+
+/* Style the table header row */
+thead th {
+    padding: 10px;
+}
+
+/* Style the table body */
+tbody {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+
+}
+
+/* Style each table row */
+tr {
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+    /* Center text in header cells */
+
+}
+
+/* Style alternating row background colors */
+tr:nth-child(even) {
+    background-color: #000000;
+}
+
+/* Style the table cells */
+td {
+    padding: 10px;
+    text-align: left;
+    border-right: 1px solid #ffffff;
+}
+
+/* Remove the right border for the last cell in each row */
+tr td:last-child {
+    border-right: none;
+}

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import ContactRow from './ContactRow';
+import React, { useState, useEffect } from "react";
+import ContactRow from "./ContactRow";
+import "./ContactList.css"; // Import the CSS file
 
 
 const dummyContacts = [
@@ -10,6 +11,19 @@ const dummyContacts = [
 
 export default function ContactList() {
     const [contacts, setContacts] = useState(dummyContacts);
+
+    useEffect(() => {
+        async function fetchContacts() {
+            try {
+                const response = await fetch("http://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users");
+                const result = await response.json();
+                setContacts(result);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        fetchContacts();
+    }, []);
 
     return (
         <table>
@@ -24,9 +38,9 @@ export default function ContactList() {
                     <td>Email</td>
                     <td>Phone</td>
                 </tr>
-                {contacts.map((contact) => {
-                    return <ContactRow key={contact.id} contact={contact} />
-                })}
+                {contacts.map((contact) => (
+                    <ContactRow key={contact.id} contact={contact} />
+                ))}
             </tbody>
         </table>
     );
