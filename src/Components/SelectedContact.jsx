@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./SelectedContact"; // Import the CSS file
 
 export default function SelectedContact({ selectedContactId, setSelectedContactId }) {
     const [contact, setContact] = useState(null);
@@ -8,7 +7,7 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
         async function fetchContactData() {
             try {
                 if (selectedContactId) {
-                    const response = await fetch(`https://jsonplace-univclone.herokuapp.com/users/${selectedContactId}`);
+                    const response = await fetch(`https://jsonplace-univclone.herokuapp.com/users/${ContactList}`);
                     const contactData = await response.json();
                     setContact(contactData);
                 } else {
