@@ -3,7 +3,7 @@ import ContactRow from "./ContactRow";
 import "./ContactList.css"; // Import the CSS file
 
 export default function ContactList() {
-    const [contacts, setContacts] = useState([]);
+    const [contacts, setContacts] = useState([]); // Initialize as an empty array
 
     useEffect(() => {
         async function fetchContacts() {
